@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MobileHub V1
 
-## Getting Started
+## Stage 1: Create the Project and Set Up the Starter Files
 
-First, run the development server:
+### 1. Install the pnpm package
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    npm install -g pnpm
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Create the Next.js project
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+    pnpm create next-app@latest mobileHub_v1 --typescript --tailwind --eslint --app --src-dir --import-alias "@/*"
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Run the project
 
-## Learn More
+Enter the project directory and run:
 
-To learn more about Next.js, take a look at the following resources:
+    cd mobileHub_v1
+    pnpm dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Install lucide-react
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Install the `lucide-react` package for using icons:
 
-## Deploy on Vercel
+    pnpm add lucide-react
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 5. Set up the folder structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Delete the default `layout.tsx` and `page.tsx` files from the `src/app/` folder.
+
+Create the `public` and `admin` directories.
+
+Create a `layout.tsx` file inside each directory and temporarily create a `page.tsx` file inside the `public` directory.
+
+The folder structure should look like this:
+
+    src/
+    └── app/
+        ├── public/
+        │   ├── layout.tsx
+        │   └── page.tsx
+        │
+        └── admin/
+            ├── layout.tsx
+            └── page.tsx
+
+---
+
+## Stage 2: Types & Validation Layer
+
+### 1. Install Form and Validation Packages
+
+Install `react-hook-form`, `@hookform/resolvers`, and `zod`:
+
+    pnpm add react-hook-form @hookform/resolvers zod
+
+These packages will be used for:
+
+- Form handling with `react-hook-form`
+- Connecting form validation with Zod using `@hookform/resolvers`
+- Schema validation using `zod`
+
+---
+
+## Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js
+- npm
+- pnpm
+
+You can verify the installed versions using:
+
+    node -v
+    npm -v
+    pnpm -v
+
+## Running the Project
+
+Start the development server with:
+
+    pnpm dev
+
+Then open the local development URL displayed in the terminal.
