@@ -1,5 +1,5 @@
 import { getLookupData } from "@/lib/api/lookups";
-import { MobileForm } from "@/components/admin/MobileForm";
+import { MobileForm } from "@/components/admin/addMobile/MobileForm";
 
 export const revalidate = 0;
 
