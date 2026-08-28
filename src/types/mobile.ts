@@ -55,3 +55,13 @@ export interface LookupData {
   specDefinitions: LookupSpecDefinition[];
   stores: LookupStore[];
 }
+
+export interface MobileCatalogItem {
+  id: string;
+  name: string;
+  brand: string;
+  price: string;
+  image: string;
+  isPopular?: boolean;
+  status: "Published" | "Draft";
+}

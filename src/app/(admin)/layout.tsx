@@ -8,7 +8,7 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen flex bg-slate-950 text-slate-100">
+    <div className="min-h-screen flex bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors">
       {/* Sidebar */}
       <AdminSidebar />
 
@@ -18,7 +18,9 @@ export default function AdminLayout({
         <AdminNavbar />
 
         {/* Main Body */}
-        <main className="flex-1 p-8 overflow-y-auto">{children}</main>
+        <main className="flex-1 p-8 overflow-y-auto bg-slate-50 dark:bg-slate-950 transition-colors">
+          {children}
+        </main>
 
         {/* Footer */}
         <AdminFooter />
