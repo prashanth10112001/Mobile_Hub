@@ -67,9 +67,9 @@ export function AdminSidebar() {
           <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">
             Tech Hub
           </h2>
-          <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-500 dark:text-blue-400">
+          {/* <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-500 dark:text-blue-400">
             Admin
-          </span>
+          </span> */}
         </div>
 
         {/* Navigation Links */}

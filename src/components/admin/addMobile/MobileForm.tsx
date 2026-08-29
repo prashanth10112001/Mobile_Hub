@@ -103,6 +103,12 @@ export function MobileForm({ lookupData }: MobileFormProps) {
   const { formState, control } = form;
   const values = useWatch({ control });
 
+  const filledSpecsCount =
+    values.specifications?.filter(
+      (spec) =>
+        typeof spec?.specValue === "string" && spec.specValue.trim().length > 0,
+    ).length ?? 0;
+
   const activeIndex = TABS.findIndex((t) => t.id === activeTab);
 
   // Auto-dismiss feedback message after 5 seconds
@@ -156,8 +162,9 @@ export function MobileForm({ lookupData }: MobileFormProps) {
       return isCoreComplete ? "complete" : "idle";
     }
 
-    if (tab.id === "specs")
-      return (values.specifications?.length ?? 0) > 0 ? "complete" : "idle";
+    // if (tab.id === "specs")
+    //   return (values.specifications?.length ?? 0) > 0 ? "complete" : "idle";
+    if (tab.id === "specs") return filledSpecsCount > 0 ? "complete" : "idle";
     if (tab.id === "variants")
       return (values.variants?.length ?? 0) > 0 ? "complete" : "idle";
     if (tab.id === "images")
@@ -373,7 +380,8 @@ export function MobileForm({ lookupData }: MobileFormProps) {
                 <div className="grid grid-cols-2 gap-1 text-slate-600 dark:text-slate-400">
                   <span>Specifications Added:</span>{" "}
                   <span className="font-medium text-slate-900 dark:text-slate-200">
-                    {values.specifications?.length ?? 0} item(s)
+                    {/* {values.specifications?.length ?? 0} item(s) */}
+                    {filledSpecsCount} item(s)
                   </span>
                   <span>Variants Configured:</span>{" "}
                   <span className="font-medium text-slate-900 dark:text-slate-200">

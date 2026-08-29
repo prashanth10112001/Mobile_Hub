@@ -4,7 +4,8 @@ export const specificationSchema = z.object({
   specDefinitionId: z
     .number({ message: "Specification definition is required" })
     .min(1, "Select a specification definition"),
-  specValue: z.string().min(1, "Value is required"),
+  // specValue: z.string().min(1, "Value is required"),
+  specValue: z.string().optional().or(z.literal("")),
 });
 
 export const storeAvailabilitySchema = z.object({
@@ -43,9 +44,22 @@ export const mobileFormSchema = z.object({
   slug: z.string().min(2, "Slug must be at least 2 characters"),
   launchDate: z.string().min(1, "Launch date is required"),
   status: z.enum(["Available", "Coming Soon", "Rumored"]),
+  // specifications: z
+  //   .array(specificationSchema)
+  //   .min(1, "Add at least one specification"),
+  // specifications: z.array(specificationSchema).optional(), // Keeps blank specs optional during validation
   specifications: z
     .array(specificationSchema)
-    .min(1, "Add at least one specification"),
+    .optional()
+    .transform((specs) =>
+      specs
+        ? specs.filter(
+            (spec) =>
+              typeof spec.specValue === "string" &&
+              spec.specValue.trim().length > 0,
+          )
+        : [],
+    ),
   variants: z
     .array(variantSchema)
     .min(1, "Add at least one RAM/Storage variant"),

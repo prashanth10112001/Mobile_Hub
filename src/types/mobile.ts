@@ -43,6 +43,7 @@ export interface LookupSpecDefinition {
   id: number;
   categoryName: string;
   name: string;
+  categoryId?: number;
 }
 
 export interface LookupStore {
